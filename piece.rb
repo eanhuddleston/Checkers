@@ -66,21 +66,40 @@ class Piece
   end
 
   def valid_for_jumping?(coord)
-    @valid_trans.each do |trans|
-      one_step = [ position[0] + trans[0],
-          position[1] + trans[1] ]
-      return false if !in_bounds?(one_step)
+    puts "@position: #{@position}"
+    @valid_trans.each_with_index do |trans, i|
+      puts "loops through: #{i}"
+      one_step = [ @position[0] + trans[0],
+          @position[1] + trans[1] ]
+      #puts "one_step: #{one_step}"
+      puts "@position: #{@position}"
+      puts "in_bounds: #{in_bounds?(one_step)}"
+      puts "trans: #{trans}"
+      next if !in_bounds?(one_step)
       piece = @board.board[one_step[0]][one_step[1]]
-      if !piece.nil? and !piece.is_a?(WhiteSquare)
+      #piece is one step
+      if !piece.nil?
         if piece.color == @color
-          return false #can't jump own guy
+          next #can't jump own guy; use next trans
         elsif piece.color != @color
           two_steps = [ one_step[0] + trans[0],
               one_step[1] + trans[1] ]
-          return true if two_steps == coord
+          puts "one_step: #{one_step}"
+          puts "two_steps: #{two_steps}"
+          piece2 = @board.board[two_steps[0]][two_steps[1]]
+          puts "piece2: #{piece2.nil?}"
+          if piece2.nil?
+            # puts "two_steps: #{two_steps}"
+#             puts "coord: #{coord}"
+            puts "two_steps == coord: #{two_steps == coord}"
+            return true if two_steps == coord
+          end
         end
+      else
+        next
       end
     end
+
     false
   end
 

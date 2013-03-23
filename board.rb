@@ -13,24 +13,28 @@ class Board
       end
     end
 
-    black_piece_coords = [ [0,1],[0,3],[0,5],[0,7],[1,0],[1,2],
-                    [1,4],[1,6],[2,1],[2,3],[2,5],[2,7] ]
-    black_piece_coords.each do |coord|
-      board[coord[0]][coord[1]] = Piece.new(:B, coord, self)
-    end
+    # black_piece_coords = [ [0,1],[0,3],[0,5],[0,7],[1,0],[1,2],
+    #                 [1,4],[1,6],[2,1],[2,3],[2,5],[2,7] ]
+    # black_piece_coords.each do |coord|
+    #   board[coord[0]][coord[1]] = Piece.new(:B, coord, self)
+    # end
+    #
+    # white_piece_coords = [ [5,0],[5,2],[5,4],[5,6],[6,1],[6,3],
+    #                 [6,5],[6,7],[7,0],[7,2],[7,4],[7,6] ]
+    # white_piece_coords.each do |coord|
+    #   board[coord[0]][coord[1]] = Piece.new(:W, coord, self)
+    # end
 
-    white_piece_coords = [ [5,0],[5,2],[5,4],[5,6],[6,1],[6,3],
-                    [6,5],[6,7],[7,0],[7,2],[7,4],[7,6] ]
-    white_piece_coords.each do |coord|
-      board[coord[0]][coord[1]] = Piece.new(:W, coord, self)
-    end
+    #Testing
+    board[4][1] = Piece.new(:W, [4,3], self)
+    board[3][2] = Piece.new(:B, [3,4], self)
+    board[1][4] = Piece.new(:B, [1,4], self)
 
-    # board[4][3] = King.new(:W, [4,3], self)
-    # board[1][0] = Piece.new(:W, [1,0], self)
-    # board[3][4] = Piece.new(:B, [3,4], self)
-    # board[1][4] = Piece.new(:B, [1,4], self)
-    # board[5][4] = Piece.new(:B, [5,4], self)
-    # board[5][2] = Piece.new(:B, [5,2], self)
+
+    # board[4][3] = Piece.new(:B, [4,3], self)
+#     board[4][3] = King.new(:W, [4,3], self)
+#     board[5][4] = Piece.new(:B, [5,4], self)
+#     board[5][2] = Piece.new(:B, [5,2], self)
 
     flush_coords = [0,2,4,6]
     offset_coords = [1,3,5,7]
