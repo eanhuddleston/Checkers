@@ -20,11 +20,6 @@ class Board
       board[coord[0]][coord[1]] = Piece.new(:W, coord, self)
     end
 
-    #Testing
-    # board[4][1] = Piece.new(:W, [4,1], self)
-    # board[3][2] = Piece.new(:B, [3,4], self)
-    # board[1][4] = Piece.new(:B, [1,4], self)
-
     flush_coords = [0,2,4,6]
     offset_coords = [1,3,5,7]
 
