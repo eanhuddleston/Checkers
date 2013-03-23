@@ -24,7 +24,7 @@ class Player
         piece.jump(end_coord)
         if piece.any_valid_jumps?
           @board.print_board
-          puts "Please go again:"
+          puts "There's at least one more jump possible, so you must make one."
           self.make_move
         end
         break
