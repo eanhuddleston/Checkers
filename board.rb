@@ -6,7 +6,7 @@ class Board
   end
 
   def new_board
-    board = [ [],[],[],[],[],[],[],[] ]
+    board = Array.new(8) { Array.new {nil} }
     (0..7).each do |row|
       (0..7).each do |pos|
         board[row][pos] = nil
