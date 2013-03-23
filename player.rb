@@ -5,9 +5,12 @@ class Player
     @color = color
     @board = board
   end
+  
+  # REV: The break, next, and nested if statements makes this a bit hard to follow.
+  #      However the method names are great.
 
   def make_move
-    while true
+    while true  
       start_coord, end_coord = get_move_coords
       piece = @board.board[start_coord[0]][start_coord[1]]
 
@@ -40,6 +43,6 @@ class Player
     puts "Enter destination coordinate:"
     end_coord = gets.chomp.split(' ').map {|i| i.to_i}
 
-    return [start_coord, end_coord]
+    return [start_coord, end_coord]  # REV: You don't need a return here. 
   end
 end

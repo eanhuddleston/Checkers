@@ -6,7 +6,7 @@ class Board
   end
 
   def new_board
-    board = [ [],[],[],[],[],[],[],[] ]
+    board = [ [],[],[],[],[],[],[],[] ] # REV: you could also write Array.new(8) {[]}
     (0..7).each do |row|
       (0..7).each do |pos|
         board[row][pos] = nil
@@ -51,7 +51,7 @@ class Board
 
   def any_pieces_left?(color)
     pieces = find_pieces(color)
-    if !pieces.empty?
+    if !pieces.empty? # REV: you don't need the true and false, if your !pieces.empty? method itself returns a boolean
       true
     else
       false
@@ -61,7 +61,7 @@ class Board
   def find_pieces(color)
     all_pieces = []
     @board.flatten.each do |piece|
-      if !piece.nil? and !piece.is_a?(WhiteSquare) #we have an object
+      if !piece.nil? and !piece.is_a?(WhiteSquare) #we have an object  #REV: I would avoid double negatives. 
         if piece.color == color
           all_pieces << piece
         end

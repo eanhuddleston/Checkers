@@ -2,7 +2,7 @@ class Piece
   attr_accessor :position
   attr_reader :color
 
-  def initialize(color, position, board)
+  def initialize(color, position, board)  # REV: I am not sure if you need to pass the board to the Piace
     @color = color
     @position = position
     @board = board
@@ -29,7 +29,7 @@ class Piece
     king_me if end_of_board?
   end
 
-  def any_poss_moves?
+  def any_poss_moves? # REV: I am not sure what this method is for? poss = possible ? 
     all_poss_trans = @valid_trans + @valid_jump_trans
     all_poss_trans.each do |trans|
       end_pos = [ @position[0] + trans[0],
@@ -65,7 +65,7 @@ class Piece
     false
   end
 
-  def valid_for_jumping?(coord)
+  def valid_for_jumping?(coord)  # REV: This is very complicated. Try breaking up the parts into seperate methods
     puts "@position: #{@position}"
     @valid_trans.each_with_index do |trans, i|
       puts "loops through: #{i}"
@@ -103,7 +103,7 @@ class Piece
     false
   end
 
-  def valid_for_one_space?(coord)
+  def valid_for_one_space?(coord)  # REV: I like how discriptive this method is. 
     return false if !in_bounds?(coord)
     piece = @board.board[ coord[0] ][ coord[1] ]
 
@@ -136,7 +136,7 @@ class Piece
   end
 end
 
-class King < Piece
+class King < Piece  # REV: It might be easer to have the boolen for king, in the piece class
   def initialize(color, position, board)
     super(color, position, board)
     @valid_trans = [ [1,-1],[1,1],[-1,-1],[-1,1] ]

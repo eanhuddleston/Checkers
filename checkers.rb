@@ -9,7 +9,7 @@ class Game
     @black_player = Player.new(:B, @board)
   end
 
-  def play
+  def play # REV: This is well broken down. 
     while true
       @board.print_board
       puts "White player's turn:"
