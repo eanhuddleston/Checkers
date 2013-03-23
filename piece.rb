@@ -62,6 +62,7 @@ class Piece
         return true
       end
     end
+    
     false
   end
 

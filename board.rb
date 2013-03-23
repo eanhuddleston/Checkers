@@ -89,7 +89,7 @@ class Board
       opp_color = :W
     end
 
-    if !any_pieces_left?(opp_color) and !any_moves_left?(opp_color)
+    if !any_pieces_left?(opp_color) or !any_moves_left?(opp_color)
       return true
     else
       return false
@@ -102,7 +102,6 @@ class Board
       print_line = ""
       print_line << "#{i} "
       row.each_with_index do |square, j|
-        #print_line << "#{j} "
         print_line << "*" if nil
         if square.is_a?(King)
           print_line << "K" if square.color == :B
