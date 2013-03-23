@@ -30,12 +30,6 @@ class Board
     board[3][2] = Piece.new(:B, [3,4], self)
     board[1][4] = Piece.new(:B, [1,4], self)
 
-
-    # board[4][3] = Piece.new(:B, [4,3], self)
-#     board[4][3] = King.new(:W, [4,3], self)
-#     board[5][4] = Piece.new(:B, [5,4], self)
-#     board[5][2] = Piece.new(:B, [5,2], self)
-
     flush_coords = [0,2,4,6]
     offset_coords = [1,3,5,7]
 
