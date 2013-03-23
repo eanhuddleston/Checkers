@@ -89,8 +89,7 @@ class Board
   def print_board
     puts "  0 1 2 3 4 5 6 7"
     @board.each_with_index do |row, i|
-      print_line = ""
-      print_line << "#{i} "
+      print_line = "#{i} "
       row.each_with_index do |square, j|
         print_line << "*" if nil
         if square.is_a?(King)
