@@ -7,11 +7,6 @@ class Board
 
   def new_board
     board = Array.new(8) { Array.new {nil} }
-    (0..7).each do |row|
-      (0..7).each do |pos|
-        board[row][pos] = nil
-      end
-    end
 
     black_piece_coords = [ [0,1],[0,3],[0,5],[0,7],[1,0],[1,2],
                     [1,4],[1,6],[2,1],[2,3],[2,5],[2,7] ]
